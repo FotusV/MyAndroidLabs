@@ -13,7 +13,6 @@
 
     <Button
         android:id="@+id/button"
-        android:nextFocusUp="@id/button"
         android:nextFocusDown="@id/switch1"
         android:nextFocusRight="@id/button2"
         android:layout_width="wrap_content"
@@ -43,6 +42,7 @@
     <Button
         android:id="@+id/button3"
         android:nextFocusLeft="@id/button2"
+        android:nextFocusRight="@id/button"
         android:nextFocusDown="@id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

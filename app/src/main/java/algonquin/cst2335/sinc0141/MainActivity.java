@@ -3,7 +3,9 @@ package algonquin.cst2335.sinc0141;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.animation.Animation;
@@ -13,6 +15,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.TextView;
+
+import java.io.FileOutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button loginButton ;
     private EditText emailEditText;
-    @SuppressLint("WrongViewCast")
+    @SuppressLint({"WrongViewCast", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         imageView = findViewById(R.id.imageView);
         emailEditText = findViewById(R.id.emailEditText);
-
         loginButton.setOnClickListener( clk-> {
                     Intent nextPage = new Intent(MainActivity.this, SecondActivity.class);
                     nextPage.putExtra("EmailAddress", emailEditText.getText().toString());

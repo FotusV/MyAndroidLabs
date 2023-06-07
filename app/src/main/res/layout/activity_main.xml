@@ -81,14 +81,13 @@
         android:id="@+id/logIn"
         android:layout_width="284dp"
         android:layout_height="22dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:text="Enter your email here"
         app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.301"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -96,19 +95,15 @@
         android:id="@+id/emailEditText"
         android:layout_width="280dp"
         android:layout_height="59dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="16dp"
         android:hint="Type email here"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logIn" />
+        app:layout_constraintStart_toStartOf="@+id/logIn"
+        tools:layout_editor_absoluteY="283dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="16dp"
         android:text="Type your password: "
         app:layout_constraintStart_toStartOf="@+id/emailEditText"
         app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
@@ -119,18 +114,15 @@
         android:layout_height="57dp"
         android:text="           "
         app:layout_constraintStart_toStartOf="@+id/emailEditText"
-        tools:layout_editor_absoluteY="359dp" />
+        tools:layout_editor_absoluteY="377dp" />
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="273dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="56dp"
         android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editText"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

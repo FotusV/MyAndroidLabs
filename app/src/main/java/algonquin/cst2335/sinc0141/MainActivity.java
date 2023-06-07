@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private static String TAG = "MainActivity";
 
     private Button loginButton ;
+    private EditText emailEditText;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +63,12 @@ public class MainActivity extends AppCompatActivity {
 
         loginButton = findViewById(R.id.loginButton);
         imageView = findViewById(R.id.imageView);
+        emailEditText = findViewById(R.id.emailEditText);
 
         loginButton.setOnClickListener( clk-> {
-                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                    startActivity(intent);
+                    Intent nextPage = new Intent(MainActivity.this, SecondActivity.class);
+                    nextPage.putExtra("EmailAddress", emailEditText.getText().toString());
+                    startActivity(nextPage);
                 });
 
 

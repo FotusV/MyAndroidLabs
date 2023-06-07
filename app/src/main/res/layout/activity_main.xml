@@ -93,7 +93,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/emailEditText"
         android:layout_width="280dp"
         android:layout_height="59dp"
         android:layout_marginStart="16dp"
@@ -106,27 +106,20 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="67dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="5dp"
         android:text="Type your password: "
-        app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintStart_toStartOf="@+id/emailEditText"
+        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="277dp"
         android:layout_height="57dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="16dp"
         android:text="           "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/emailEditText"
+        tools:layout_editor_absoluteY="359dp" />
 
     <Button
         android:id="@+id/loginButton"

@@ -1,6 +1,5 @@
 package algonquin.cst2335.sinc0141;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +15,6 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Room;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -94,6 +91,10 @@ public class ChatRoom extends AppCompatActivity {
 
         binding = ActivityChatRoomBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        chatModel.selectedMessage.observe(this, (newMessageValue) -> {
+
+        });
 
         chatModel = new ViewModelProvider(this).get(ChatRoomViewModel.class);
         ArrayList<ChatMessage> chatMessages = chatModel.messages.getValue();
@@ -218,26 +219,28 @@ public class ChatRoom extends AppCompatActivity {
                 int position = getAbsoluteAdapterPosition();
                 ChatMessage removeMessage = messages.get(position);
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
-                builder.setMessage("Do you want to delete this message: " + chatMessage.getMessage());
-                builder.setTitle("Question");
-                builder.setNegativeButton("No", (dialog, cl) -> {
-                });
-                builder.setPositiveButton("Yes", (dialog, cl) -> {
 
-                    ChatMessage removedMessage = messages.get(position);
-                    messages.remove(position);
-                    myAdapter.notifyItemRemoved(position);
 
-                    Snackbar.make(itemView, "You deleted message #" + position, Snackbar.LENGTH_LONG)
-                            .setAction("Undo", undoclk -> {
-                                // Undo logic here
-                                messages.add(position, removedMessage);
-                                myAdapter.notifyItemInserted(position);
-                            })
-                            .show();
-                });
-                builder.create().show();
+//                AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
+//                builder.setMessage("Do you want to delete this message: " + chatMessage.getMessage());
+//                builder.setTitle("Question");
+//                builder.setNegativeButton("No", (dialog, cl) -> {
+//                });
+//                builder.setPositiveButton("Yes", (dialog, cl) -> {
+//
+//                    ChatMessage removedMessage = messages.get(position);
+//                    messages.remove(position);
+//                    myAdapter.notifyItemRemoved(position);
+//
+//                    Snackbar.make(itemView, "You deleted message #" + position, Snackbar.LENGTH_LONG)
+//                            .setAction("Undo", undoclk -> {
+//                                // Undo logic here
+//                                messages.add(position, removedMessage);
+//                                myAdapter.notifyItemInserted(position);
+//                            })
+//                            .show();
+//                });
+//                builder.create().show();
             });
         }
     }
@@ -258,6 +261,8 @@ public class ChatRoom extends AppCompatActivity {
         messages.remove(position);
         myAdapter.notifyItemRemoved(position);
     }
+
+
 
     /**
      * Update the entire ArrayList of messages with the new messages.

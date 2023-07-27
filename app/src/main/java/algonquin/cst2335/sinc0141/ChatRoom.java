@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -93,7 +95,20 @@ public class ChatRoom extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         chatModel.selectedMessage.observe(this, (newMessageValue) -> {
+            // Create a new instance of DetailsFragment with the updated data
+            DetailsFragment chatFragment = new DetailsFragment(newValue);
 
+            // Get the FragmentManager
+            FragmentManager fMgr = getSupportFragmentManager();
+
+            // Begin the FragmentTransaction
+            FragmentTransaction tx = fMgr.beginTransaction();
+
+            // Replace the existing fragment (if any) with the new one
+            tx.replace(R.id.fragmentLocation, chatFragment);
+
+            // Commit the transaction to apply the changes
+            tx.commit();
         });
 
         chatModel = new ViewModelProvider(this).get(ChatRoomViewModel.class);

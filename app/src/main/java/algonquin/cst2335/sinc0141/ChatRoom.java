@@ -31,6 +31,8 @@ import algonquin.cst2335.sinc0141.databinding.SentMessageBinding;
 import data.ChatMessageDAO;
 import data.ChatRoomViewModel;
 import data.MessageDatabase;
+import data.MessageDetailsFragment;
+
 
 /**
  * Activity for displaying a chat room and handling user interactions.
@@ -95,8 +97,7 @@ public class ChatRoom extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         chatModel.selectedMessage.observe(this, (newMessageValue) -> {
-            // Create a new instance of DetailsFragment with the updated data
-            DetailsFragment chatFragment = new DetailsFragment(newValue);
+            MessageDetailsFragment chatFragment = new MessageDetailsFragment(newMessageValue);
 
             // Get the FragmentManager
             FragmentManager fMgr = getSupportFragmentManager();

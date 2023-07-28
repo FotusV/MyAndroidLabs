@@ -11,4 +11,5 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="227dp"
         android:layout_height="315dp" />
+
 </LinearLayout>

@@ -2,6 +2,7 @@ package algonquin.cst2335.sinc0141;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -86,9 +87,14 @@ public class ChatRoom extends AppCompatActivity {
 
     private ChatMessageDAO mDAO;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setSupportActionBar(binding.myToolbar);
+
 
         MessageDatabase db = Room.databaseBuilder(getApplicationContext(), MessageDatabase.class, "database-name").build();
         mDAO = db.cmDAO();
@@ -110,7 +116,11 @@ public class ChatRoom extends AppCompatActivity {
 
             // Commit the transaction to apply the changes
             tx.commit();
+
+
         });
+
+
 
         chatModel = new ViewModelProvider(this).get(ChatRoomViewModel.class);
         ArrayList<ChatMessage> chatMessages = chatModel.messages.getValue();
@@ -201,6 +211,11 @@ public class ChatRoom extends AppCompatActivity {
 
             chatModel.messages.postValue(messages); // Update ViewModel with the latest messages
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my_menu, menu);
+        return true;
     }
 
     /**

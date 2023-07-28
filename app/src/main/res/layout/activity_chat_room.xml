@@ -10,7 +10,16 @@
    <FrameLayout
        android:id="@+id/fragmentLocation"
        android:layout_width="match_parent"
-       android:layout_height="match_parent"></FrameLayout>
+       android:layout_height="match_parent">
+
+      <androidx.appcompat.widget.Toolbar
+          android:id="@+id/myToolbar"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/my_statusbar"
+          android:elevation="4dp"
+          android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+   </FrameLayout>
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recycleView"
